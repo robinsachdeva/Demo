@@ -1,0 +1,59 @@
+﻿@model WebCoEPhase2.ViewModelCoE.LoginVM
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+<html>
+    <head>
+        <title></title>
+          <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+        <script lang="en" type="text/javascript">
+            var app = angular.module('myApp', []);
+
+            app.controller('searchCustomer', searchCustomer);
+
+            function searchCustomer($scope, $http) {
+                $http({ method: "GET", url: "http://in-air-aciscoe1/webcoe2/Api/UserApi" }).
+   success(function (data, status, headers, config) {
+       $scope.Customers = data;
+   });
+            }
+               
+
+        </script>
+    </head>
+
+    <body ng-app="myApp">
+
+      
+                    <div ng-controller="searchCustomer">
+                         
+                        <p>Enter Any Field to Search:</p><input type="text" ng-model="q" name="search" />
+                        <br />
+                        <br />
+                        <table border="1">
+                            <tr>
+                                <th>User Id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email Id</th>
+                                <th>Phone No</th>
+                                
+                            </tr>
+                            <tr ng-repeat="x in Customers|filter:q as results ">
+                                <td>{{x.user_id}}</td>
+                                <td>{{x.firstname}}</td>
+                                 <td>{{x.lastname}}</td>
+                                <td>{{x.emailid}}</td>
+                                 <td>{{x.phoneno}}</td>
+                            </tr>
+                        </table>
+
+                    </div>
+               
+    </body>
+</html>

@@ -1,0 +1,42 @@
+﻿@model WebCoEPhase2.ViewModelCoE.LoginVM
+
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ChangePassword", "Account", FormMethod.Post))
+{
+ <table>
+        <tr>
+            <td>Old Password:</td>
+            <td>
+               
+               <input type="password" name="password1" />
+
+            </td>
+        </tr>
+          <tr>
+            <td>New Password:</td>
+            <td>
+                   
+               <input type="password" name="password" />
+            </td>
+        </tr>
+          <tr>
+            <td>Confirm Password:</td>
+            <td>
+                   
+                  <input type="password" name="password2" />
+            </td>
+        </tr>
+          <tr>
+            <td colspan="2">
+                 <input id="btnsubmit" type="submit"  name="btnsubmit" value="Submit" />
+
+            </td>
+            
+        </tr>
+    </table>
+    <div style="color: Red; font-size:17pt">@ViewBag.msg</div>
+}

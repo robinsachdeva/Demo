@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "_Layout";
+}
+
+ <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  
+<script src="~/Menu/script.js"></script>
+<link href="~/Menu/styles.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 104px;
+        }
+        body {
+background-color: #f4f4f4;
+color: #5a5656;
+font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+font-size: 16px;
+line-height: 1.5em;
+}
+   .tb10 {
+	background-image:url(images/form_bg.jpg);
+	background-repeat:repeat-x;
+	border:1px solid #d1c7ac;
+    width:200px;
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+}
+    </style>
+<div>
+      
+       
+      
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style2">
+                   <b> ABC Bank Pvt. Ltd.</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id='cssmenu'>
+<ul>
+   <li>
+      @* <a href="Home/Index"><span>Home</span></a>*@
+       @Html.ActionLink("Home","Index","Home")
+   </li>
+     <li>
+         @*<a href="Home/Search"><span>Search User</span></a>*@
+          @Html.ActionLink("Search User","Search","Home")
+     </li>
+    <li>
+       @* <a href="Home/service"><span>Web Service</span></a>*@
+          @Html.ActionLink("utility","utility","Home")
+    </li>
+    <li>
+        @*<a href="Home/transferfund"><span>Transaction</span></a>*@
+         @Html.ActionLink("Transaction","transferfund","Home")
+    </li>
+    
+   <li class='active has-sub'><a href='#'><span>Settings</span></a>
+      <ul>
+         <li class='last'>
+          @*   <a href="Account/ChangePass"><span>Change Password</span></a>*@
+              @Html.ActionLink("Change Password","ChangePass","Account")
+           
+         </li>
+                        
+       <li class='last'>
+         @*  <a href="Home/UpdateUser"><span>Edit Info</span> </a>*@
+           
+           @Html.ActionLink("Edit Info","UpdateUser","Home")
+         </li>
+      </ul>
+   </li>
+   <li class='last'>
+  
+
+        @Html.ActionLink("Report","Report","Home")
+
+   </li>
+   <li class='last'>
+   @*    <a href="Home/Logout"><span>Log-Out</span></a>*@
+
+        @Html.ActionLink("Log-Out","Logout","Home")
+
+   </li>
+</ul>
+</div>
+                    </td>
+            </tr>
+            <tr>
+                
+                <td>
+                 
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                 
+                    @RenderBody()
+                </td>
+            </tr>
+        </table>
+           
+      
+    </div>
+

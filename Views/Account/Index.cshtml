@@ -1,0 +1,51 @@
+﻿@model WebCoEPhase2.ViewModelCoE.LoginVM
+@using WebCoEPhase2.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+        <script lang="en" type="text/javascript">
+            var app = angular.module('myApp', []);
+            app.controller('validateCtrl', function ($scope) {
+               
+            });
+          </script>
+<link href="~/CSS/MainCss.css" rel="stylesheet" />
+@using (Html.BeginForm("Submit", "Account", FormMethod.Post))
+{
+
+  
+<div id="login" ng-app="myApp"  ng-controller="validateCtrl">
+    <h1><strong>Welcome.</strong> Please login.</h1>
+    <fieldset>
+<p>
+   
+    
+   <label name="lblUserName">UserName:</label>
+    <br />
+       <input name="username" type="text" required />
+                  
+                  @*   @Html.ValidationMessageFor(a=>a.login.username)*@
+</p>
+<p>
+        <label name="lblPassword">Password:</label>
+    <br />
+        <input name="password" type="password" required/>
+                   @*   @Html.ValidationMessageFor(a=>a.login.password)*@
+</p>
+
+<p>
+  
+     <input id="btnLogin" type="submit"  name="btnLogin" value="Login" />
+</p>
+        </fieldset>
+  
+     @Html.ActionLink("SignUp","UserRegistration","Account")
+  
+
+</div>
+   
+}

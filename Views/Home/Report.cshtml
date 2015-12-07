@@ -1,0 +1,48 @@
+﻿@model WebCoEPhase2.ViewModelCoE.LoginVM
+
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Report</h2>
+
+<html>
+    <head>
+        <title></title>
+
+
+    </head>
+
+    <body>
+       @using (Html.BeginForm("SubmitReport", "Home", FormMethod.Get))
+        {
+        <table>
+    <tr>
+        <td>From Date:</td>
+        <td><input type="date" name="fromdate" /></td>
+        <td>To Date:</td>
+        <td><input type="date" name="todate"/></td>
+        <td>
+            <input id="btnLogin" type="submit"  name="btnshow" value="Show Data" />
+        </td>
+    </tr>
+            <tr>
+                <td colspan="4">
+
+                    <div id="jj">
+                      
+                     @*   @{
+                            
+                            WebGrid obj = new WebGrid(Model.transactions, canPage:true);
+                        
+                        }
+                        @obj.GetHtml();*@
+                       
+                    </div>
+                </td>
+            </tr>
+</table>
+        }
+    </body>
+</html>

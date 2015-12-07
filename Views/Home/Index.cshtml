@@ -1,0 +1,84 @@
+﻿@model WebCoEPhase2.ViewModelCoE.LoginVM
+@using WebCoEPhase2.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+
+        <div>
+            <p><b>User Details:</b></p>
+           <table border="1">
+ 
+  <tr>
+      <td>User ID:</td>
+      <td>@Model.use.user_id</td>
+  </tr>
+     <tr>
+      <td>First Name:</td>
+      <td>@Model.use.firstname</td>
+  </tr>
+  <tr>
+      <td>Last Name:</td>
+      <td>@Model.use.lastname</td>
+  </tr>
+  <tr>
+      <td>Emai Id:</td>
+      <td>@Model.use.emailid</td>
+  </tr>
+   <tr>
+      <td>Phone No:</td>
+      <td>@Model.use.phoneno</td>
+  </tr>
+</table>
+            <b><u>Transactions Details:</u></b>
+           
+          <b>  <p>Total Available Balance: @Model.use.amount</p></b>
+           
+            <table border="1">
+                <tr>
+                    <th>Beneficiary Name</th>
+                    <th>Bank Name</th>
+                    <th>IFSC Code</th>
+                      <th>Transfer Fund</th>
+                    <th>Naration</th>
+                    <th>Date</th>
+                     <th>Available Balance</th>
+                </tr>
+                @foreach (transaction item in Model.transactions)
+                {
+                    <tr>
+                        <td>
+                            @item.beneficiary
+                        </td>
+                         <td>
+                            @item.bankname
+                        </td>
+                         <td>
+                            @item.ifsc
+                        </td>
+                         <td>
+                            @item.transferfund
+                        </td>
+                         <td>
+                            @item.naration
+                        </td>
+                        
+                         <td>
+                            @item.date_
+                        </td>
+                        <td>
+                            @item.availablefund
+                            </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>
